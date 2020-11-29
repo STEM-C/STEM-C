@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 
 import { Modal } from 'antd';
-import {CloseOutlined} from '@ant-design/icons'
 
 import './viewDayModal.less'
 import { getDayToolboxAll } from "../../../Utils/requests";
