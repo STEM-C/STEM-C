@@ -37,6 +37,7 @@ export default function Home(props) {
     }, [classroomId]);
 
     const handleViewDay = day => {
+        day.learning_standard = activeLearningStandard.name;
         localStorage.setItem("my-day", JSON.stringify(day));
         history.push('/day')
     };

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Button, List, Card, Modal } from 'antd'
 import { PlusOutlined, CloseOutlined } from '@ant-design/icons';
-import { createDay, deleteDay, getDayToolboxAll } from '../../../Utils/requests'
+import {createDay, deleteDay, getDayToolboxAll, getLearningStandard} from '../../../Utils/requests'
 
 import './DayEditor.less'
 
@@ -79,6 +79,11 @@ export default function ContentCreator(props) {
     const handleViewDay = async day => {
         const res = await getDayToolboxAll();
         day.toolbox = res.data.toolbox;
+        day.number = day.day;
+
+        const request = await getLearningStandard(learningStandard);
+
+        day.learning_standard = request.data.name;
 
         localStorage.setItem("my-day", JSON.stringify(day));
         props.history.push('/day')
@@ -92,7 +97,7 @@ export default function ContentCreator(props) {
             <button id={linkBtn ? 'link-btn' : null} onClick={showModal}>View</button>
 
             <Modal
-                title="hello"
+                title="Learning Standard Days:"
                 visible={visible}
                 onCancel={handleCancel}
                 size="large"

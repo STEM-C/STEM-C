@@ -2,15 +2,17 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Link } from "react-router-dom";
 import '../DayPanels.less'
 import { compileArduinoCode, handleCreatorSaveDay, handleSave } from "../helpers";
-import { message, Spin, Menu, Checkbox } from "antd";
+import { message, Spin, Menu, Checkbox, Layout } from "antd";
 import { getSaves } from "../../../Utils/requests";
 import CodeModal from "./CodeModal";
 import VersionHistoryModal from "./VersionHistoryModal"
+import GraphDisplay from "./GraphDisplay";
 
 export default function BlocklyCanvasPanel(props) {
     const [hoverXml, setHoverXml] = useState(false);
     const [hoverArduino, setHoverArduino] = useState(false);
     const [hoverCompile, setHoverCompile] = useState(false);
+    const [collapsed, setCollapsed] = useState(false);
     const [selectedCompile, setSelectedCompile] = useState(false);
     const [saves, setSaves] = useState({});
     const [studentToolbox, setStudentToolbox] = useState([]);
@@ -88,7 +90,7 @@ export default function BlocklyCanvasPanel(props) {
             if (!workspaceRef.current && day && Object.keys(day).length !== 0) {
                 setWorkspace();
 
-                if (!isStudent && !isMentor && !isContentCreator) return;
+                if (!isStudent && !isMentor) return;
 
                 let onLoadSave = null;
                 const res = await getSaves(day.id);
@@ -291,6 +293,14 @@ export default function BlocklyCanvasPanel(props) {
                         </Menu>
                     </div>
                     : null}
+                {isStudent ?
+                    <Layout.Sider collapsible
+                                  collapsed={collapsed}
+                                  onCollapse={() => setCollapsed(!collapsed)}
+                                  className={"flex flex-row"}>
+                        <GraphDisplay/>
+                    </Layout.Sider>
+                : null}
             </div>
 
             {/* This xml is for the blocks' menu we will provide. Here are examples on how to include categories and subcategories */}

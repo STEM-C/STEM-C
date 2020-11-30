@@ -23,6 +23,8 @@ export default function ViewDayModal(props) {
     const handleViewDay = async day => {
         const res = await getDayToolboxAll();
         day.toolbox = res.data.toolbox;
+        day.number = day.day;
+        day.learning_standard =
 
         localStorage.setItem("my-day", JSON.stringify(day));
         props.history.push('/day')

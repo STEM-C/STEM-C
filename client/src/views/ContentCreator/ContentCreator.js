@@ -8,7 +8,6 @@ import DayEditor from './LearningStandardDayCreator/DayEditor'
 import UnitCreator from './UnitCreator/UnitCreator';
 import LearningStandardDayCreator from './LearningStandardCreator/LearningStandardCreator'
 import {getLearningStandard, getLearningStandardAll,deleteLearningStandard} from '../../Utils/requests'
-import ViewDayModal from './viewDayModal/viewDayModal';
 import UnitEditor from './UnitEditor/UnitEditor'
 
 const { TabPane } = Tabs;
@@ -67,7 +66,7 @@ export default function ContentCreator(props) {
             width: '10%',
             align: 'right',
             render: (_, key) => (
-                <DayEditor history={props.history} days = {getDays(key)} learningStandard={key.edit} linkBtn={true}/>
+                <DayEditor history={props.history} days = {getDays(key)} learningStandard={key.edit} learningStandardName={"temp"} linkBtn={true}/>
             )
         },
         // {
@@ -241,8 +240,8 @@ export default function ContentCreator(props) {
                     <h1>Units & Learning Standards:</h1>
                     </div>
                     <div id='table-container'>
-                    <UnitCreator datasource={dataSource} changeDataSource={addTodataSource}></UnitCreator>
-                    <LearningStandardDayCreator dataSource = {dataSource} changeDataSource={addTodataSource}></LearningStandardDayCreator>
+                    <UnitCreator datasource={dataSource} changeDataSource={addTodataSource}/>
+                    <LearningStandardDayCreator dataSource = {dataSource} changeDataSource={addTodataSource}/>
                     <Table columns={columns}  dataSource={dataSource} rowClassName="editable-row">
                 </Table>
             </div>
@@ -252,8 +251,8 @@ export default function ContentCreator(props) {
                             <h1>Units & Learning Standards:</h1>
                     </div>
                     <div id='table-container'>
-                        <UnitCreator datasource={dataSource} changeDataSource={addTodataSource}></UnitCreator>
-                        <LearningStandardDayCreator dataSource = {dataSourceGrade5} changeDataSource={addTodataSource}></LearningStandardDayCreator>
+                        <UnitCreator datasource={dataSource} changeDataSource={addTodataSource}/>
+                        <LearningStandardDayCreator dataSource = {dataSourceGrade5} changeDataSource={addTodataSource}/>
                         <Table columns={columns}  dataSource={dataSourceGrade5} rowClassName="editable-row">
                         </Table>
                     </div>
@@ -263,8 +262,8 @@ export default function ContentCreator(props) {
                             <h1>Units & Learning Standards:</h1>
                     </div>
                     <div id='table-container'>
-                        <UnitCreator datasource={dataSource} changeDataSource={addTodataSource}></UnitCreator>
-                        <LearningStandardDayCreator dataSource = {dataSourceGrade6} changeDataSource={addTodataSource}></LearningStandardDayCreator>
+                        <UnitCreator datasource={dataSource} changeDataSource={addTodataSource}/>
+                        <LearningStandardDayCreator dataSource = {dataSourceGrade6} changeDataSource={addTodataSource}/>
                         <Table columns={columns}  dataSource={dataSourceGrade6} rowClassName="editable-row">
                         </Table>
                     </div>

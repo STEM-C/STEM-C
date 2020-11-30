@@ -22,6 +22,10 @@ export default function Day(props) {
 
         if (localDay) {
             if (localDay.toolbox) {
+                if(isContentCreator){
+                    localDay.number = localDay.day
+                }
+
                 setDay(localDay)
             } else {
                 getDayToolbox(localDay.id).then(res => {
@@ -53,7 +57,7 @@ export default function Day(props) {
                     day={day}
                     isMentor={isMentor}
                     isContentCreator={isContentCreator}
-                    lessonName={`Learning Standard ${day.learning_standard}, Day ${day.number}`}
+                    lessonName={`${day.learning_standard}, Day ${day.number}`}
                     handleGoBack={handleGoBack}/>
             </div>
         </div>
