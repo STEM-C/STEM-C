@@ -38,6 +38,7 @@ export default function Classroom(props) {
             <Tabs
                 defaultActiveKey={tab ? tab : "home"}
                 onChange={key => history.push(`#${key}`)}
+                size={"large"}
             >
                 <TabPane tab="Home" key="home">
                     <Home classroomId={classroomId} history={history} selectedActivity={selectedActivity}

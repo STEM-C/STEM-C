@@ -12,25 +12,24 @@ export default function Sandbox(props) {
         const localDay = JSON.parse(localStorage.getItem("sandbox-day"));
 
         if (localDay) {
-            let loadedDay = localDay;
-            setDay(loadedDay)
-        } else {
-            getDayToolboxAll().then(res => {
-                if (res.data) {
-                    let loadedDay = {toolbox: res.data.toolbox};
-
-                    localStorage.setItem("sandbox-day", JSON.stringify(loadedDay));
-                    setDay(loadedDay)
-                } else {
-                    message.error(res.err);
-                }
-            })
+            localStorage.removeItem("sandbox-day");
         }
+        getDayToolboxAll().then(res => {
+            if (res.data) {
+                let loadedDay = {toolbox: res.data.toolbox};
+
+                localStorage.setItem("sandbox-day", JSON.stringify(loadedDay));
+                setDay(loadedDay)
+            } else {
+                message.error(res.err);
+            }
+        })
+
     }, []);
 
     return (
         <div className='container nav-padding'>
-            <NavBar />
+            <NavBar/>
             <BlocklyCanvasPanel day={day} isSandbox={true} homePath={'/'}/>
         </div>
     );

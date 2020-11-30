@@ -16,14 +16,14 @@ export default function Home(props) {
     useEffect(() => {
         const fetchData = async () => {
             const res = await getClassroom(classroomId);
-            if(res.data){
+            if (res.data) {
                 const classroom = res.data;
                 setClassroom(classroom);
                 setGradeId(classroom.grade.id);
                 classroom.selections.forEach(async selection => {
                     if (selection.current) {
                         const res = await getLearningStandard(selection.learning_standard);
-                        if(res.data) setActiveLearningStandard(res.data);
+                        if (res.data) setActiveLearningStandard(res.data);
                         else {
                             message.error(res.err);
                         }
@@ -51,20 +51,22 @@ export default function Home(props) {
                             <p>{`Expectations: ${activeLearningStandard.expectations}`}</p>
                             <div id="btn-container" className='flex space-between'>
                                 {activeLearningStandard.days.map(day =>
-                                    <button key={day.id} onClick={() => handleViewDay(day)}>{`View Day ${day.number}`}</button>
+                                    <button key={day.id}
+                                            onClick={() => handleViewDay(day)}>{`View Day ${day.number}`}</button>
                                 )}
                             </div>
                         </div>
                         : 'There is currently no active learning standard set. ' +
                         'Click the button below to browse available learning standards'}
-                    <LearningStandardModal history={history}
-                                           setActiveLearningStandard={setActiveLearningStandard}
-                                           classroomId={classroomId}
-                                           gradeId={gradeId}
-                                           viewing={viewing}/>
+                    <div className='flex space-evenly'>
+                        <LearningStandardModal history={history}
+                                               setActiveLearningStandard={setActiveLearningStandard}
+                                               classroomId={classroomId}
+                                               gradeId={gradeId}
+                                               viewing={viewing}/>
+                        <DisplayCodeModal code={classroom.code}/>
+                    </div>
                 </div>
-                <div id="divider"/>
-                <DisplayCodeModal code={classroom.code}/>
             </div>
         </div>
     );
