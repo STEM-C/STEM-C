@@ -20,7 +20,7 @@ export default function DisplayCodeModal(props) {
 
     return (
         <div id='display-code-modal'>
-            <button id='display-code-btn' onClick={showModal}>Click to display join code help</button>
+            <button id='display-code-btn' onClick={showModal}>Click to display join code</button>
             <Modal
                 title={'Join Code'}
                 visible={visible}

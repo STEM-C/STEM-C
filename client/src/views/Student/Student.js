@@ -35,8 +35,8 @@ function Student(props) {
         <div className='container nav-padding'>
             <NavBar isStudent={true}/>
             <div id='activity-container'>
-                <div id='header'>
-                    <h1>Select your Day</h1>
+                <div id='student-header'>
+                    <h1 id='student-header-text'>Select your Day</h1>
                 </div>
                 <ul>
                     {
