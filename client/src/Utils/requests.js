@@ -78,9 +78,6 @@ export const getClassroom = async (id) => (
     })
 );
 
-
-
-
 export const getStudentClassroom = async () => (
     makeRequest({
         method: GET,
@@ -350,13 +347,14 @@ export const createLearningStandard = async (description,name,number,unit) =>(
     })
 );
 
-export const createUnit = async(name,teksID,teksDescrip,grade)=>(
+export const createUnit = async(number, name,teksID,teksDescrip,grade)=>(
     makeRequest({
         method: POST,
         path: `${server}/units`,
         data: {
+            "number": parseInt(number, 10),
             "name": name,
-            "grade": grade,
+            "grade": parseInt(grade, 10),
             "teks_id": teksID,
             "teks_description": teksDescrip,
         },
