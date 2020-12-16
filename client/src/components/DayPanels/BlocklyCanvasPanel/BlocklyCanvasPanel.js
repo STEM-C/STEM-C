@@ -2,12 +2,13 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Link } from "react-router-dom";
 import '../DayPanels.less'
 import { compileArduinoCode, handleCreatorSaveDay, handleSave } from "../helpers";
-import { message, Spin, Menu, Checkbox } from "antd";
+import { Layout, message, Spin, Menu, Checkbox } from "antd";
 import { getSaves } from "../../../Utils/requests";
 import CodeModal from "./CodeModal";
 import VersionHistoryModal from "./VersionHistoryModal"
 
 export default function BlocklyCanvasPanel(props) {
+    const { Sider } = Layout;
     const [hoverXml, setHoverXml] = useState(false);
     const [hoverArduino, setHoverArduino] = useState(false);
     const [hoverCompile, setHoverCompile] = useState(false);
@@ -16,6 +17,7 @@ export default function BlocklyCanvasPanel(props) {
     const [studentToolbox, setStudentToolbox] = useState([]);
     const [lastSavedTime, setLastSavedTime] = useState(null);
     const [lastAutoSave, setLastAutoSave] = useState(null);
+    const [collapsed, setCollapsed] = useState(false);
     const { day, homePath, handleGoBack, isStudent, isMentor, isContentCreator, lessonName } = props;
 
     const workspaceRef = useRef(null);
@@ -291,7 +293,16 @@ export default function BlocklyCanvasPanel(props) {
                         </Menu>
                     </div>
                     : null}
+                {
+                    isStudent ?
+                        <Sider collapsible collapsed={collapsed} onCollapse={setCollapsed} id='side-container'>
+                            "checking"
+                        </Sider>
+                        : null}
+
             </div>
+
+
 
             {/* This xml is for the blocks' menu we will provide. Here are examples on how to include categories and subcategories */}
             <xml id="toolbox" is="Blockly workspace">
