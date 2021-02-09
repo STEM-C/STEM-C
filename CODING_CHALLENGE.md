@@ -135,7 +135,7 @@ GET ``https://casmm-staging.herokuapp.com/challenge``
     - [ ] Clone this [repository](https://github.com/CaSMM/STEM-C.git)
     - [ ] Checkout the branch **feature/code-challenge**
     - [ ] Install the dependencies in the [client](https://github.com/STEM-C/CaSMM/tree/feature/coding-challenge/client#setup) folder
-    - [ ] Start the [client](https://github.com/STEM-C/CaSMM/tree/feature/coding-challenge/client#yarn-start) development server
+    - [ ] Start the [client](https://github.com/STEM-C/CaSMM/tree/feature/coding-challenge/client#yarn-start) development server and navigate to ``localhost:3000/challenge``
 
 2. Implement the topics view
 
@@ -143,7 +143,7 @@ GET ``https://casmm-staging.herokuapp.com/challenge``
 
    > All of the tasks map to a comment in the **Challenge.js** file
    >
-   > Feel free to use the **Challenge.css** file to style your view
+   > Feel free to use the **Challenge.css** file to style your view 
 
     - [ ] Implement the fetchTopics function
         - [ ] Call the challenge api

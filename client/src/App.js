@@ -42,7 +42,7 @@ const App = () => {
                 <Route exact path={"/ccdashboard"} render={() => <ContentCreator history={history} />}/>
                 <Route exact path={"/unitcreator"} render={() => <UnitCreator history={history} />}/>
                 <Route exact path={"/addblocks"} render={() => <UploadBlocks history={history} />}/>
-                <Route exact path={"/challenge"} render={(props) => <Challenge setSelectedActivity={setSelectedActivity}/>}/>
+                <Route exact path={"/challenge"} render={() => <Challenge setSelectedActivity={setSelectedActivity}/>}/>
                
                 <Route component={NotFound}/>
             </Switch>

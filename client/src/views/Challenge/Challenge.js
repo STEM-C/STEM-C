@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react"
 import {Link} from "react-router-dom"
-import './Topics.css'
+import './Challenge.css'
 
 // Use this for http requests
 import axios from 'axios'
