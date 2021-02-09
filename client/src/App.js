@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Route, Switch, useHistory } from 'react-router-dom'
 import PrivateRoute from './Utils/PrivateRoute';
 
@@ -16,9 +16,15 @@ import TeacherLogin from "./views/TeacherLogin/TeacherLogin"
 import ContentCreator from './views/ContentCreator/ContentCreator'
 import UnitCreator from './views/ContentCreator/UnitCreator/UnitCreator'
 import UploadBlocks from './views/UploadBlocks/UploadBlocks'
+import Challenge from './views/Challenge/Challenge'
 
 const App = () => {
     let history = useHistory();
+    const [selectedActivity, setSelectedActivity] = useState()
+
+    useEffect(() => {
+        console.log("Selected activity has changed to: ", selectedActivity)
+    }, [selectedActivity])
 
     return (
         <div>
@@ -36,6 +42,7 @@ const App = () => {
                 <Route exact path={"/ccdashboard"} render={() => <ContentCreator history={history} />}/>
                 <Route exact path={"/unitcreator"} render={() => <UnitCreator history={history} />}/>
                 <Route exact path={"/addblocks"} render={() => <UploadBlocks history={history} />}/>
+                <Route exact path={"/challenge"} render={(props) => <Challenge setSelectedActivity={setSelectedActivity}/>}/>
                
                 <Route component={NotFound}/>
             </Switch>
