@@ -16,7 +16,7 @@ Our project incorporates a lot of different user views. We want you to implement
 
 You will source the topics data from the topics api:
 
-GET ``https://casmm-staging.herokuapp.com/challenge``
+GET ``https://casmm-staging.herokuapp.com/api/challenge``
 
 > On your first request, the server may be idling, so give it some time to start up
 
@@ -173,7 +173,6 @@ Please follow the instructions below to submit your work.
 
 ## Submission
 
-Submit a zipped version of the **entire** project folder [here](https://forms.gle/LjVKdpUC3NZ9WcqA6)
+First delete the node_modules folder in `client/`, then submit a zipped version of the **client** project folder [here](https://forms.gle/LjVKdpUC3NZ9WcqA6)
 
-> The folder that was downloaded when you cloned the repository
-
+> Do not submit the entire CaSMM project or another folder such as `compile/` or `server/`
