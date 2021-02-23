@@ -14,7 +14,7 @@ function Challenge(props) {
     useEffect( () => {
         // Complete the fetchClass function 
         const fetchClass = async () => {
-            
+
             // Basic authetication required
             let joinCode = '0450';
             let ids = [2, 3];
@@ -50,7 +50,7 @@ function Challenge(props) {
         // For each day belonging to a learningStandard, render a row with its number
 
         // Each day row should be wrapped in a link that will take a user to the workspace (this is already implemented for you)
-        // <Link to={`workspace/`} onClick={() => handleSelection(learningStandard[i].days[j])}>
+        // <Link to={`workspace/`} onClick={() => handleSelection(learning_standards[i].days[j])}>
         //     Your activity code here...
         // </Link>
 
