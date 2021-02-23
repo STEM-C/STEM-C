@@ -139,7 +139,7 @@ GET ``https://casmm-staging.herokuapp.com/api/challenge``
         - [ ] For each Learning Standard in the response, render a row with its name and expectations.
             - [ ] For each day belonging to a LearningStandards, render a row with its number
                 - [ ] Each day row should be wrapped in a link (this is implemented for you in the code) that will take a user to the workspace view that has been previously implemented
-                - [ ] **Bonus**: Only show a learningStandard's activities on hover
+                - [ ] **Bonus**: Only show a learningStandard's days on hover
 
 3. Reflection
 
